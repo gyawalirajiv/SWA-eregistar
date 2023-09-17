@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Student</title>
+</head>
+<body>
+<div>
+    <div style="display: flex; justify-content: space-around;">
+        <div><a href="/">Home</a></div>
+        <div><a href="/create">Create</a></div>
+    </div>
+
+    <div style="margin-top: 200px;">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>studentNumber</th>
+                <th>firstName</th>
+                <th>middleName</th>
+                <th>lastName</th>
+                <th>cgpa</th>
+                <th>enrollmentDate</th>
+                <th>isInternational</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr th:each="student: ${students}">
+                <td th:text="${student.id}"></td>
+                <td th:text="${student.studentNumber}"></td>
+                <td th:text="${student.firstName}"></td>
+                <td th:text="${student.middleName}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.cgpa}"></td>
+                <td th:text="${student.enrollmentDate}"></td>
+                <td th:text="${student.isInternational}"></td>
+                <td><button th:onclick="'javascript:gotoUpdate(' + ${student.id} + ')'">Update</button></td>
+                <td><button th:onclick="'javascript:gotoDelete(' + ${student.id} + ')'">Delete</button></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+<script>
+    function gotoUpdate(id){
+        window.location.href = '/update/' + id;
+    }
+    function gotoDelete(id){
+        window.location.href = '/delete/' + id;
+    }
+</script>
+</html>

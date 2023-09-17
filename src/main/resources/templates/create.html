@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Student</title>
+</head>
+<body>
+<form th:action="@{/create}" th:object="${student}" method="post">
+    <div>
+        <label>
+            <input th:field="*{studentNumber}" placeholder="Student Number"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" th:field="*{firstName}" placeholder="First Name"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" th:field="*{middleName}" placeholder="Middle Name"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="text" th:field="*{lastName}" placeholder="Last Name"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="number" th:field="*{cgpa}" placeholder="cgpa"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="date" th:field="*{enrollmentDate}" placeholder="Enrollment Date"/>
+        </label>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" th:field="*{isInternational}" placeholder="International?"/>
+        </label>
+    </div>
+    <input type="hidden" th:field="*{id}"/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
